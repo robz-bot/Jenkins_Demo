@@ -1,8 +1,6 @@
 package com.jenkins.student;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -31,5 +29,9 @@ class StudentApplicationTests {
 		assertTrue(studentRepository.findAll().size()>0);
 	}
 	
-
+	@Test 
+	public void testDeleteStudent() {
+		studentRepository.deleteById(1L);
+		assertTrue(studentRepository.findById(1L).isEmpty());
+	}
 }
