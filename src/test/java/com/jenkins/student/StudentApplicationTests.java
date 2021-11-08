@@ -39,6 +39,6 @@ class StudentApplicationTests {
 	@Order(3)
 	public void testDeleteStudent() {
 		studentRepository.deleteById(1L);
-		assertTrue(studentRepository.findById(1L) == null);
+		assertFalse(studentRepository.findAll().size() > 0);
 	}
 }
