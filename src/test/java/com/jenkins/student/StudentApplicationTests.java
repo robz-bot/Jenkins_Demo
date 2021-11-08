@@ -1,6 +1,7 @@
 package com.jenkins.student;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -39,6 +40,6 @@ class StudentApplicationTests {
 	@Order(3)
 	public void testDeleteStudent() {
 		studentRepository.deleteById(1L);
-		assertTrue(studentRepository.findById(1L) == null);
+		assertFalse(studentRepository.findAll().size() > 0);
 	}
 }
