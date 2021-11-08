@@ -11,27 +11,28 @@ import com.jenkins.student.entity.Student;
 import com.jenkins.student.repository.StudentRepository;
 
 @SpringBootTest
+
 class StudentApplicationTests {
-	
+
 	@Autowired
 	StudentRepository studentRepository;
 
 	@Test
 	public void testNewStudent() {
-		Student stu=new Student(1L,"Robin","8484848484");
+		Student stu = new Student(1L, "Robin", "8484848484");
 		studentRepository.save(stu);
-		assertEquals(1L,1L);
+		assertEquals(1L, 1L);
 	}
-	
-	@Test 
+
+	@Test
 	public void testGetAllStudents() {
 		studentRepository.findAll();
-		assertTrue(studentRepository.findAll().size()>0);
+		assertTrue(studentRepository.findAll().size() > 0);
 	}
-	
-	@Test 
+
+	@Test
 	public void testDeleteStudent() {
 		studentRepository.deleteById(1L);
-		assertTrue(studentRepository.findById(1L).isEmpty());
+		assertTrue(studentRepository.findById(1L) == null);
 	}
 }
